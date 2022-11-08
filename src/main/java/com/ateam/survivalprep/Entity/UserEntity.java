@@ -93,11 +93,11 @@ public class UserEntity {
         this.contactNo = contactNo;
     }
     
-    public FamilyEntity getFamily() {
+    public Set<FamilyEntity> getFamily() {
         return family;
     }
     
-    public void setFamily(FamilyEntity family) {
+    public void setFamily(Set<FamilyEntity> family) {
         this.family = family;
     }
     
