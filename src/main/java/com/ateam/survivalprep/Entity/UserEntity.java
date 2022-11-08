@@ -32,6 +32,7 @@ public class UserEntity {
     private boolean isModerator;
     private boolean isDeleted;
 
+    public UserEntity(){}
     
     public UserEntity(int userId, String username, String firstName, String lastName, String email, String password,
             String contactNo, Set<FamilyEntity> family, CommunityEntity community, boolean isAdmin, boolean isModerator,

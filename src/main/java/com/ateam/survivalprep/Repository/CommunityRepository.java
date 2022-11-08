@@ -3,9 +3,9 @@ package com.ateam.survivalprep.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.ateam.survivalprep.Entity.UserEntity;
+import com.ateam.survivalprep.Entity.CommunityEntity;
 
 @Repository
-public interface UserRepository extends JpaRepository<UserEntity, Integer>{
+public interface CommunityRepository extends JpaRepository<CommunityEntity, Integer>{
     
 }
