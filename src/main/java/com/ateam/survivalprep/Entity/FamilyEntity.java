@@ -12,27 +12,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tbl_family")
 public class FamilyEntity {
+
+    //for generation of invite codes
+    private static String inviteGenerator(){
+         String AlphaNumericString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+         StringBuilder strbuild = new StringBuilder(4);
+            for (int i = 0; i < 4; i++) {
+                int val = (int)(AlphaNumericString.length() * Math.random());
+                strbuild.append(AlphaNumericString.charAt(val));
+               }
+        return strbuild.toString();
+    }
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int family_id;
     
     private String family_name;
-
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inviteGenerator")
-    @SequenceGenerator(name="inviteGenerator", sequenceName = "inviteSeq", allocationSize=4)
-    private String invite_code;
+    private String inviteCode = inviteGenerator();
 
     // private Set<UserEntity> creator;
     private boolean isDeleted;
 
     public FamilyEntity(){}
 
-    public FamilyEntity(int family_id, String family_name, String invite_code, /*Set<UserEntity> creator,*/
+    public FamilyEntity(int family_id, String family_name, /*Set<UserEntity> creator,*/
             boolean isDeleted) {
         this.family_id = family_id;
         this.family_name = family_name;
-        this.invite_code = invite_code;
         // this.creator = creator;
         this.isDeleted = isDeleted;
     }
@@ -49,8 +56,8 @@ public class FamilyEntity {
         this.family_name = family_name;
     }
 
-    public String getinvite_code() {
-        return invite_code;
+    public String getInviteCode() {
+        return inviteCode;
     }
 
     // public Set<UserEntity> getCreator() {

@@ -19,8 +19,15 @@ public class FamilyService {
 		return frepo.save(family);
 	}
 	
+	public FamilyEntity getFamilybyCode(String code){
+		if(frepo.findByInviteCode(code) != null && !frepo.findByInviteCode(code).isDeleted()){
+			return frepo.findByInviteCode(code);
+		}else{
+			return null;
+		}
+	}
 	public List<FamilyEntity> getAllFamilies(){
-	   return frepo.findAll();
+	   return frepo.findByIsDeleted(false);
 	}
 	
 	public FamilyEntity putFamilyName(int id, FamilyEntity newFamilyDetails) throws Exception{
@@ -42,6 +49,7 @@ public class FamilyService {
 		if(frepo.findById(id) != null) {
             FamilyEntity family = frepo.findById(id).get();
             family.setDeleted(true);
+			frepo.save(family);
 			msg = "Family ID number " + id + " deleted successfully!";
 		}else {
 			msg = "Family ID number " + id + " is NOT found!";
