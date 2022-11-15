@@ -29,15 +29,21 @@ public class UserController {
     }
     
     //for Log-in (Read)
-    @PostMapping("/getUser")
-	public UserEntity getUser(@RequestBody UserEntity user) {
-		return userv.getUser(user);
+    @PostMapping("/postLogin")
+	public String postLogin(@RequestBody UserEntity user) {
+		return userv.LoginUser(user);
     }
     
     //for checking deletion
     @GetMapping("/getAllUsers")
     public List<UserEntity> getAllUsers(){
     	return userv.getAllUsers();
+    }
+
+    //for add family member search feature
+    @GetMapping("/getUserByNum")
+    public UserEntity getUserByNum(@RequestParam String contactNo){
+        return userv.getUserByNum(contactNo);
     }
      
     //for change Username (Update)

@@ -21,20 +21,19 @@ public class UserService {
 	}
 	
 	//for log-in feature (READ)
-	public UserEntity getUser(UserEntity user){
+	public String LoginUser(UserEntity user){
 		String email = user.getEmail();
 		String pass = user.getPassword();
-			if(urepo.findByEmail(email) != null && !user.isDeleted()){
+			
+			if(urepo.findByEmail(email) != null && !urepo.findByEmail(email).isDeleted()){
 				UserEntity userAccount = urepo.findByEmail(email);
-				if(userAccount.getPassword() == pass){
-					return userAccount;
+				if(userAccount.getPassword().equals(pass)){
+					return "Login Successful!";
 				}else{
-					System.out.println("Incorrect Password!");
-					return null;
+					return "Incorrect Password!";
 				}
 			}else{
-				System.out.println("No User Found!");
-				return null;
+				return "No User Found!";
 			}
 	}
 
@@ -43,8 +42,9 @@ public class UserService {
 	   return urepo.findByIsDeleted(false);
 	}
 
+	//for add family member feature;
 	public UserEntity getUserByNum(String number){
-		if(urepo.findByContactno(number) != null){
+		if(urepo.findByContactno(number) != null && !urepo.findByContactno(number).isDeleted()){
 			return urepo.findByContactno(number);
 		}else{
 			System.out.println("No User Found");
