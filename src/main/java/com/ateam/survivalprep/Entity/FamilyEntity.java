@@ -36,8 +36,7 @@ public class FamilyEntity {
 
     public FamilyEntity(){}
 
-    public FamilyEntity(int family_id, String family_name, /*Set<UserEntity> creator,*/
-            boolean isDeleted) {
+    public FamilyEntity(int family_id, String family_name, /*Set<UserEntity> creator,*/ boolean isDeleted) {
         this.family_id = family_id;
         this.family_name = family_name;
         // this.creator = creator;

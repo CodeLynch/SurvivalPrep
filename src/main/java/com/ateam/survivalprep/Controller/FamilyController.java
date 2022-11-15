@@ -34,6 +34,17 @@ public class FamilyController{
     	return fserv.getAllFamilies();
     }
 
+    //search family for join family feature (READ)  
+    @GetMapping("/getFamilyByCode")
+    public FamilyEntity getFamilyByCode(@RequestParam String code){
+    	FamilyEntity family = fserv.getFamilybyCode(code);
+        if(family != null && !family.isDeleted()){
+            return family;
+        } else{
+            return null;
+        }
+    }
+
     //rename family feature (UPDATE) 
     @PutMapping("/putFamily")
     public FamilyEntity putFamily(@RequestParam int id, @RequestBody FamilyEntity newFamilyDetails) throws Exception{
