@@ -28,7 +28,7 @@ public class FamilyService {
 		
 		try {
 			family = frepo.findById(id).get();
-			family.setFamilyName(newFamilyDetails.getFamilyName());
+			family.setfamily_name(newFamilyDetails.getfamily_name());
 			return frepo.save(family);
 
 		}catch(NoSuchElementException e){

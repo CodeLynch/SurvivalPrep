@@ -17,67 +17,67 @@ public class UserEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    private int user_id;
     private String username;
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
     private String password;
-    private String contactNo;
+    private String contactno;
 
     // @ManyToOne(cascade = CascadeType.MERGE)
     // private Set<FamilyEntity> family;
 
     // private CommunityEntity community;
-    private boolean isAdmin;
-    private boolean isModerator;
+    private boolean is_admin;
+    private boolean is_moderator;
     private boolean isDeleted;
 
     public UserEntity(){}
     
-    public UserEntity(int userId, String username, String firstName, String lastName, String email, String password,
-            String contactNo, /*Set<FamilyEntity> family,*/ /*CommunityEntity community,*/ boolean isAdmin, boolean isModerator,
+    public UserEntity(int user_id, String username, String firstname, String lastname, String email, String password,
+            String contactno, /*Set<FamilyEntity> family,*/ /*CommunityEntity community,*/ boolean is_admin, boolean is_moderator,
             boolean isDeleted) {
-        this.userId = userId;
+        this.user_id = user_id;
         this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.email = email;
         this.password = password;
-        this.contactNo = contactNo;
+        this.contactno = contactno;
         // this.family = family;
         // this.community = community;
-        this.isAdmin = isAdmin;
-        this.isModerator = isModerator;
+        this.is_admin = is_admin;
+        this.is_moderator = is_moderator;
         this.isDeleted = isDeleted;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getUser_id() {
+        return user_id;
     }
+
 
     public String getUsername() {
         return username;
     }
-    
+
     public void setUsername(String username) {
         this.username = username;
     }
-    
-    public String getFirstName() {
-        return firstName;
+
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+
+    public String getLastname() {
+        return lastname;
     }
 
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
-        this.email = email;
-    }
+
 
     public String getPassword() {
         return password;
@@ -87,14 +87,36 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getContactNo() {
-        return contactNo;
+    public String getContactno() {
+        return contactno;
     }
 
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
+
+    public boolean isAdmin() {
+        return is_admin;
     }
-    
+
+    public void setIsAdmin(boolean is_admin) {
+        this.is_admin = is_admin;
+    }
+
+    public boolean isModerator() {
+        return is_moderator;
+    }
+
+    public void setIsModerator(boolean is_moderator) {
+        this.is_moderator = is_moderator;
+    }
+
+    public boolean isDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(boolean isDeleted) {
+        this.isDeleted = isDeleted;
+    }
+
+
     // public Set<FamilyEntity> getFamily() {
     //     return family;
     // }
@@ -111,30 +133,6 @@ public class UserEntity {
     //     this.community = community;
     // }
     
-    public boolean isAdmin() {
-        return isAdmin;
-    }
-    
-    public void setAdmin(boolean isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-    
-    public boolean isModerator() {
-        return isModerator;
-    }
-    
-    public void setModerator(boolean isModerator) {
-        this.isModerator = isModerator;
-    }
-    
-    public boolean isDeleted() {
-        return isDeleted;
-    }
-    
-    public void setDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
-    }
-
 
 
     

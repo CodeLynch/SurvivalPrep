@@ -44,8 +44,8 @@ public class UserService {
 	}
 
 	public UserEntity getUserByNum(String number){
-		if(urepo.findByContactNo(number) != null){
-			return urepo.findByContactNo(number);
+		if(urepo.findByContactno(number) != null){
+			return urepo.findByContactno(number);
 		}else{
 			System.out.println("No User Found");
 			return null;
@@ -83,7 +83,7 @@ public class UserService {
 		String msg;
 		if(urepo.findById(id) != null) {
             UserEntity user = urepo.findById(id).get();
-            user.setDeleted(true);
+            user.setIsDeleted(true);;
 			urepo.save(user);
 			msg = "User ID number " + id + " deleted successfully!";
 		}else {
