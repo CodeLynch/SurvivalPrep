@@ -1,8 +1,8 @@
 package com.ateam.survivalprep.Entity;
 
-import java.util.Set;
+//import java.util.Set;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tbl_user")
+@Table(name="tbl_tip")
 public class TipsEntity {
 	
 	@Id

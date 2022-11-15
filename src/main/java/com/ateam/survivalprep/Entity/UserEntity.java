@@ -1,5 +1,6 @@
 package com.ateam.survivalprep.Entity;
 
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -24,10 +25,10 @@ public class UserEntity {
     private String password;
     private String contactNo;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
-    private Set<FamilyEntity> family;
+    // @ManyToOne(cascade = CascadeType.MERGE)
+    // private Set<FamilyEntity> family;
 
-    private CommunityEntity community;
+    // private CommunityEntity community;
     private boolean isAdmin;
     private boolean isModerator;
     private boolean isDeleted;
@@ -35,7 +36,7 @@ public class UserEntity {
     public UserEntity(){}
     
     public UserEntity(int userId, String username, String firstName, String lastName, String email, String password,
-            String contactNo, Set<FamilyEntity> family, CommunityEntity community, boolean isAdmin, boolean isModerator,
+            String contactNo, /*Set<FamilyEntity> family,*/ /*CommunityEntity community,*/ boolean isAdmin, boolean isModerator,
             boolean isDeleted) {
         this.userId = userId;
         this.username = username;
@@ -44,8 +45,8 @@ public class UserEntity {
         this.email = email;
         this.password = password;
         this.contactNo = contactNo;
-        this.family = family;
-        this.community = community;
+        // this.family = family;
+        // this.community = community;
         this.isAdmin = isAdmin;
         this.isModerator = isModerator;
         this.isDeleted = isDeleted;
@@ -94,21 +95,21 @@ public class UserEntity {
         this.contactNo = contactNo;
     }
     
-    public Set<FamilyEntity> getFamily() {
-        return family;
-    }
+    // public Set<FamilyEntity> getFamily() {
+    //     return family;
+    // }
     
-    public void setFamily(Set<FamilyEntity> family) {
-        this.family = family;
-    }
+    // public void setFamily(Set<FamilyEntity> family) {
+    //     this.family = family;
+    // }
     
-    public CommunityEntity getCommunity() {
-        return community;
-    }
+    // public CommunityEntity getCommunity() {
+    //     return community;
+    // }
     
-    public void setCommunity(CommunityEntity community) {
-        this.community = community;
-    }
+    // public void setCommunity(CommunityEntity community) {
+    //     this.community = community;
+    // }
     
     public boolean isAdmin() {
         return isAdmin;

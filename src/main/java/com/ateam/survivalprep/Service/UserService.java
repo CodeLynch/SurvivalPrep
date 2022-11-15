@@ -15,14 +15,44 @@ public class UserService {
     @Autowired
 	UserRepository urepo;
 	
+	//for register feature (CREATE)
 	public UserEntity insertUser(UserEntity user) {
 		return urepo.save(user);
 	}
 	
+	//for log-in feature (READ)
+	public UserEntity getUser(UserEntity user){
+		String email = user.getEmail();
+		String pass = user.getPassword();
+			if(urepo.findByEmail(email) != null && !user.isDeleted()){
+				UserEntity userAccount = urepo.findByEmail(email);
+				if(userAccount.getPassword() == pass){
+					return userAccount;
+				}else{
+					System.out.println("Incorrect Password!");
+					return null;
+				}
+			}else{
+				System.out.println("No User Found!");
+				return null;
+			}
+	}
+
+	//check if users are getting deleted
 	public List<UserEntity> getAllUsers(){
-	   return urepo.findAll();
+	   return urepo.findByIsDeleted(false);
+	}
+
+	public UserEntity getUserByNum(String number){
+		if(urepo.findByContactNo(number) != null){
+			return urepo.findByContactNo(number);
+		}else{
+			System.out.println("No User Found");
+			return null;
+		}
 	}
 	
+	//for change Username feature (UPDATE)
 	public UserEntity putUsername(int id, UserEntity newUserDetails) throws Exception{
 		UserEntity user = new UserEntity();
 		
@@ -36,6 +66,7 @@ public class UserService {
 		}
 	}
 
+	//for change Password feature (UPDATE)
     public UserEntity putPassword(int id, UserEntity newUserDetails) throws Exception{
 		UserEntity user = new UserEntity();
 		try {
@@ -47,11 +78,13 @@ public class UserService {
 		}
 	}
 	
+	//for delete account feature (DELETE)
 	public String deleteUser(int id) {
 		String msg;
 		if(urepo.findById(id) != null) {
             UserEntity user = urepo.findById(id).get();
             user.setDeleted(true);
+			urepo.save(user);
 			msg = "User ID number " + id + " deleted successfully!";
 		}else {
 			msg = "User ID number " + id + " is NOT found!";

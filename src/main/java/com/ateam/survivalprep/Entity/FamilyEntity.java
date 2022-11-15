@@ -19,22 +19,21 @@ public class FamilyEntity {
     
     private String familyName;
 
-    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "inviteGenerator")
     @SequenceGenerator(name="inviteGenerator", sequenceName = "inviteSeq", allocationSize=4)
     private String inviteCode;
 
-    private Set<UserEntity> creator;
+    // private Set<UserEntity> creator;
     private boolean isDeleted;
 
     public FamilyEntity(){}
 
-    public FamilyEntity(int familyID, String familyName, String inviteCode, Set<UserEntity> creator,
+    public FamilyEntity(int familyID, String familyName, String inviteCode, /*Set<UserEntity> creator,*/
             boolean isDeleted) {
         this.familyID = familyID;
         this.familyName = familyName;
         this.inviteCode = inviteCode;
-        this.creator = creator;
+        // this.creator = creator;
         this.isDeleted = isDeleted;
     }
 
@@ -54,9 +53,9 @@ public class FamilyEntity {
         return inviteCode;
     }
 
-    public Set<UserEntity> getCreator() {
-        return creator;
-    }
+    // public Set<UserEntity> getCreator() {
+    //     return creator;
+    // }
 
     public boolean isDeleted() {
         return isDeleted;
