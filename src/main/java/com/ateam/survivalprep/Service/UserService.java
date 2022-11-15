@@ -55,12 +55,14 @@ public class UserService {
 	//for change Username feature (UPDATE)
 	public UserEntity putUsername(int id, UserEntity newUserDetails) throws Exception{
 		UserEntity user = new UserEntity();
-		
 		try {
 			user = urepo.findById(id).get();
-			user.setUsername(newUserDetails.getUsername());
-
-			return urepo.save(user);
+			if(!user.isDeleted()){
+				user.setUsername(newUserDetails.getUsername());
+				return urepo.save(user);
+			}else{
+				return null;
+			}
 		}catch(NoSuchElementException e){
 			throw new Exception("ID number " + id + " does not exist!");
 		}

@@ -35,8 +35,12 @@ public class FamilyService {
 		
 		try {
 			family = frepo.findById(id).get();
-			family.setfamily_name(newFamilyDetails.getfamily_name());
-			return frepo.save(family);
+			if(!family.isDeleted()){
+				family.setfamily_name(newFamilyDetails.getfamily_name());
+				return frepo.save(family);
+			}else{
+				return null;
+			}
 
 		}catch(NoSuchElementException e){
 			throw new Exception("ID number " + id + " does not exist!");
