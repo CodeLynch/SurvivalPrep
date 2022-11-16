@@ -1,6 +1,6 @@
 package com.ateam.survivalprep.Entity;
 
-import java.util.Set;
+// import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,25 +12,27 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_community")
 public class CommunityEntity {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int communityID;
     private String communityName;
     private String address;
-    private Set<UserEntity> creator;
+    // private Set<UserEntity> creator;
     private boolean isDeleted;
 
     public CommunityEntity(){}
 
-    public CommunityEntity(int communityID, String communityName, String address, Set<UserEntity> creator,
+    public CommunityEntity(int communityID, String communityName, String address, /*Set<UserEntity> creator,*/
             boolean isDeleted) {
         this.communityID = communityID;
         this.communityName = communityName;
         this.address = address;
-        this.creator = creator;
+        // this.creator = creator;
         this.isDeleted = isDeleted;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
     public int getCommunityID() {
         return communityID;
     }
@@ -51,9 +53,9 @@ public class CommunityEntity {
         this.address = address;
     }
 
-    public Set<UserEntity> getCreator() {
-        return creator;
-    }
+    // public Set<UserEntity> getCreator() {
+    //     return creator;
+    // }
 
     public boolean isDeleted() {
         return isDeleted;

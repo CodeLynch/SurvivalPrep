@@ -22,21 +22,36 @@ public class FamilyController{
     @Autowired
 	FamilyService fserv;
 
+    //for create family feature (CREATE)
     @PostMapping("/postFamily")
 	public FamilyEntity postFamily(@RequestBody FamilyEntity family) {
 		return fserv.insertFamily(family);
     }
     
+    //check to see if deleted families are still shown (READ)
     @GetMapping("/getAllFamilies")
     public List<FamilyEntity> getAllFamilies(){
     	return fserv.getAllFamilies();
     }
-     
+
+    //search family for join family feature (READ)  
+    @GetMapping("/getFamilyByCode")
+    public FamilyEntity getFamilyByCode(@RequestParam String code){
+    	FamilyEntity family = fserv.getFamilybyCode(code);
+        if(family != null && !family.isDeleted()){
+            return family;
+        } else{
+            return null;
+        }
+    }
+
+    //rename family feature (UPDATE) 
     @PutMapping("/putFamily")
     public FamilyEntity putFamily(@RequestParam int id, @RequestBody FamilyEntity newFamilyDetails) throws Exception{
     	return fserv.putFamilyName(id, newFamilyDetails);
     }
 
+    //delete family feature (DELETE)
     @DeleteMapping("/deleteFamily/{id}")
     public String deleteFamily(@PathVariable int id) {
     	return fserv.deleteFamily(id);
