@@ -17,14 +17,6 @@ public class ForumService {
 	public ForumEntity insertForum(ForumEntity forum) {
 		return frepo.save(forum);
 	}
-	
-	// public FamilyEntity getFamilybyCode(String code){
-	// 	if(frepo.findByInviteCode(code) != null && !frepo.findByInviteCode(code).isDeleted()){
-	// 		return frepo.findByInviteCode(code);
-	// 	}else{
-	// 		return null;
-	// 	}
-	// }
 
 	public List<ForumEntity> getAllForums(){
 	   return frepo.findAll();

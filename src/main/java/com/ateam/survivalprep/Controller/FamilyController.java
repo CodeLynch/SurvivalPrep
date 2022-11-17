@@ -38,7 +38,7 @@ public class FamilyController{
     @GetMapping("/getFamilyByCode")
     public FamilyEntity getFamilyByCode(@RequestParam String code){
     	FamilyEntity family = fserv.getFamilybyCode(code);
-        if(family != null && !family.isDeleted()){
+        if(family != null && !family.isdeleted()){
             return family;
         } else{
             return null;

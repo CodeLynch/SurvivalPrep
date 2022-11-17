@@ -20,7 +20,7 @@ public class TipsService {
 	}
 	
 	public List<TipsEntity> getAllTips(){
-		return trepo.findAll();
+		return trepo.findByIsdeleted(false);
 	}
 		
 	public TipsEntity putTipContent(int id, TipsEntity newTipDetails) throws Exception{
@@ -28,7 +28,7 @@ public class TipsService {
 		
 		try {
 			tips = trepo.findById(id).get();
-			tips.setTipContent(newTipDetails.getTipContent());
+			tips.setTipcontent(newTipDetails.getTipcontent());
 
 			return trepo.save(tips);
 		}catch(NoSuchElementException e){
@@ -39,8 +39,9 @@ public class TipsService {
 	public String deleteTip(int id) {
 		String msg;
 		if(trepo.findById(id) != null) {
-            TipsEntity user = trepo.findById(id).get();
-            user.setDeleted(true);
+            TipsEntity tip = trepo.findById(id).get();
+            tip.setIsdeleted(true);
+			trepo.save(tip);
 			msg = "User ID number " + id + " deleted successfully!";
 		}else {
 			msg = "User ID number " + id + " is NOT found!";

@@ -9,6 +9,6 @@ import com.ateam.survivalprep.Entity.FamilyEntity;
 
 @Repository
 public interface FamilyRepository extends JpaRepository<FamilyEntity, Integer>{
-    public FamilyEntity findByInviteCode(String code);
-    public List<FamilyEntity>findByIsDeleted(boolean isDeleted);
+    public FamilyEntity findByInvitecode(String code);
+    public List<FamilyEntity>findByIsdeleted(boolean isDeleted);
 }

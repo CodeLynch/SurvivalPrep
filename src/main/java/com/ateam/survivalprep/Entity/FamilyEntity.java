@@ -25,49 +25,49 @@ public class FamilyEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int family_id;
+    private int familyid;
     
-    private String family_name;
-    private String inviteCode = inviteGenerator();
+    private String familyname;
+    private String invitecode = inviteGenerator();
 
     // private Set<UserEntity> creator;
-    private boolean isDeleted;
+    private boolean isdeleted;
 
     public FamilyEntity(){}
 
-    public FamilyEntity(int family_id, String family_name, /*Set<UserEntity> creator,*/ boolean isDeleted) {
-        this.family_id = family_id;
-        this.family_name = family_name;
+    public FamilyEntity(int familyid, String familyname, /*Set<UserEntity> creator,*/ boolean isdeleted) {
+        this.familyid = familyid;
+        this.familyname = familyname;
         // this.creator = creator;
-        this.isDeleted = isDeleted;
+        this.isdeleted = isdeleted;
     }
 
-    public int getfamily_id() {
-        return family_id;
+    public int getfamilyid() {
+        return familyid;
     }
 
-    public String getfamily_name() {
-        return family_name;
+    public String getfamilyname() {
+        return familyname;
     }
 
-    public void setfamily_name(String family_name) {
-        this.family_name = family_name;
+    public void setfamilyname(String familyname) {
+        this.familyname = familyname;
     }
 
-    public String getInviteCode() {
-        return inviteCode;
+    public String getInvitecode() {
+        return invitecode;
     }
 
     // public Set<UserEntity> getCreator() {
     //     return creator;
     // }
 
-    public boolean isDeleted() {
-        return isDeleted;
+    public boolean isdeleted() {
+        return isdeleted;
     }
 
-    public void setDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setDeleted(boolean isdeleted) {
+        this.isdeleted = isdeleted;
     }
 
     
