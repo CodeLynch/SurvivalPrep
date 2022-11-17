@@ -10,7 +10,7 @@ import com.ateam.survivalprep.Entity.UserEntity;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer>{
     UserEntity findByEmail(String email);
-    List<UserEntity> findByIsDeleted(boolean is_deleted);
+    List<UserEntity> findByIsdeleted(boolean is_deleted);
     UserEntity findByContactno(String contact_no);
     
 }
