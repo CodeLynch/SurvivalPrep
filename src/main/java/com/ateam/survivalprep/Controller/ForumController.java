@@ -33,8 +33,8 @@ public class ForumController{
 	}
 	
 	@PutMapping("/putForum")
-	public ForumEntity putForum(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
-		return fserv.putForum(id, newForumDetails);
+	public ForumEntity putForumTitle(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
+		return fserv.putForumTitle(id, newForumDetails);
 	}
 	
 	@DeleteMapping("/deleteForum/{id}")
@@ -43,3 +43,4 @@ public class ForumController{
 	}
 	
 }
+

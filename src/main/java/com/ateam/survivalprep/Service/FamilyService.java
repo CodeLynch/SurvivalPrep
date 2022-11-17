@@ -20,14 +20,14 @@ public class FamilyService {
 	}
 	
 	public FamilyEntity getFamilybyCode(String code){
-		if(frepo.findByInviteCode(code) != null && !frepo.findByInviteCode(code).isDeleted()){
-			return frepo.findByInviteCode(code);
+		if(frepo.findByInvitecode(code) != null && !frepo.findByInvitecode(code).isdeleted()){
+			return frepo.findByInvitecode(code);
 		}else{
 			return null;
 		}
 	}
 	public List<FamilyEntity> getAllFamilies(){
-	   return frepo.findByIsDeleted(false);
+	   return frepo.findByIsdeleted(false);
 	}
 	
 	public FamilyEntity putFamilyName(int id, FamilyEntity newFamilyDetails) throws Exception{
@@ -35,8 +35,8 @@ public class FamilyService {
 		
 		try {
 			family = frepo.findById(id).get();
-			if(!family.isDeleted()){
-				family.setfamily_name(newFamilyDetails.getfamily_name());
+			if(!family.isdeleted()){
+				family.setfamilyname(newFamilyDetails.getfamilyname());
 				return frepo.save(family);
 			}else{
 				return null;

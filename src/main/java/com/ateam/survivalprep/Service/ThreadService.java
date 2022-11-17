@@ -22,13 +22,13 @@ public class ThreadService {
 		return trepo.findAll();	
 		}
 	
-	public ThreadEntity putThread(int id, ThreadEntity newThreadDetails) throws Exception{
-		ThreadEntity thread = new ThreadEntity();
-		
-		//try{
-		//}{
-		//}
-	}
+//	public ThreadEntity putThread(int id, ThreadEntity newThreadDetails) throws Exception{
+//		ThreadEntity thread = new ThreadEntity();
+//		
+//		//try{
+//		//}{
+//		//}
+//	}
 	
 	public String deleteThread(int id) {
 		String msg;

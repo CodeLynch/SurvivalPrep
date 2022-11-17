@@ -24,8 +24,7 @@ public class UserService {
 	public String LoginUser(UserEntity user){
 		String email = user.getEmail();
 		String pass = user.getPassword();
-			
-			if(urepo.findByEmail(email) != null && !urepo.findByEmail(email).isDeleted()){
+			if(urepo.findByEmail(email) != null && !urepo.findByEmail(email).isdeleted()){
 				UserEntity userAccount = urepo.findByEmail(email);
 				if(userAccount.getPassword().equals(pass)){
 					return "Login Successful!";
@@ -39,12 +38,12 @@ public class UserService {
 
 	//check if users are getting deleted
 	public List<UserEntity> getAllUsers(){
-	   return urepo.findByIsDeleted(false);
+	   return urepo.findByIsdeleted(false);
 	}
 
 	//for add family member feature;
 	public UserEntity getUserByNum(String number){
-		if(urepo.findByContactno(number) != null && !urepo.findByContactno(number).isDeleted()){
+		if(urepo.findByContactno(number) != null && !urepo.findByContactno(number).isdeleted()){
 			return urepo.findByContactno(number);
 		}else{
 			System.out.println("No User Found");
@@ -57,7 +56,7 @@ public class UserService {
 		UserEntity user = new UserEntity();
 		try {
 			user = urepo.findById(id).get();
-			if(!user.isDeleted()){
+			if(!user.isdeleted()){
 				user.setUsername(newUserDetails.getUsername());
 				return urepo.save(user);
 			}else{
@@ -85,7 +84,7 @@ public class UserService {
 		String msg;
 		if(urepo.findById(id) != null) {
             UserEntity user = urepo.findById(id).get();
-            user.setIsDeleted(true);;
+            user.setIsdeleted(true);;
 			urepo.save(user);
 			msg = "User ID number " + id + " deleted successfully!";
 		}else {

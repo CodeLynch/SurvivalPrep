@@ -22,13 +22,13 @@ public class PostService {
 		return prepo.findAll();
 	}
 	
-	public PostEntity putPost(int id, PostEntity newPostDetails) throws Exception{
-		PostEntity post = new PostEntity();
-		
-		//try{
-		//}{
-		//}	
-		}
+//	public PostEntity putPost(int id, PostEntity newPostDetails) throws Exception{
+//		PostEntity post = new PostEntity();
+//		
+//		//try{
+//		//}{
+//		//}	
+//		}
 	
 	public String deletePost(int id) {
 		String msg;

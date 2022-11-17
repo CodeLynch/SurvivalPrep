@@ -15,42 +15,41 @@ public class TipsEntity {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int tipId;
-    private String tipCategory;
-    private String tipContent;
-    private boolean isDeleted;
+    private int tipid;
+    private String tipcategory;
+    private String tipcontent;
+    private boolean isdeleted;
     
     public TipsEntity(){}
-	public TipsEntity(int tipId, String tipCategory, String tipContent, boolean isDeleted) {
+	public TipsEntity(int tipid, String tipcategory, String tipcontent, boolean isdeleted) {
 		super();
-		this.tipId = tipId;
-		this.tipCategory = tipCategory;
-		this.tipContent = tipContent;
-		this.isDeleted = isDeleted;
+		this.tipid = tipid;
+		this.tipcategory = tipcategory;
+		this.tipcontent = tipcontent;
+		this.isdeleted = isdeleted;
 	}
 	
-	public int getTipId() {
-		return tipId;
+	public int getTipid() {
+		return tipid;
 	}
-	public void setTipId(int tipId) {
-		this.tipId = tipId;
+
+	public String getTipcategory() {
+		return tipcategory;
 	}
-	public String getTipCategory() {
-		return tipCategory;
+	public void setTipcategory(String tipcategory) {
+		this.tipcategory = tipcategory;
 	}
-	public void setTipCategory(String tipCategory) {
-		this.tipCategory = tipCategory;
+	public String getTipcontent() {
+		return tipcontent;
 	}
-	public String getTipContent() {
-		return tipContent;
+	public void setTipcontent(String tipcontent) {
+		this.tipcontent = tipcontent;
 	}
-	public void setTipContent(String tipContent) {
-		this.tipContent = tipContent;
+	public boolean isdeleted() {
+		return isdeleted;
 	}
-	public boolean isDeleted() {
-		return isDeleted;
+	public void setIsdeleted(boolean isdeleted) {
+		this.isdeleted = isdeleted;
 	}
-	public void setDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
+
 }

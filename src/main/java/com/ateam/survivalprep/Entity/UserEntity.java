@@ -17,7 +17,7 @@ public class UserEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int user_id;
+    private int userid;
     private String username;
     private String firstname;
     private String lastname;
@@ -29,16 +29,16 @@ public class UserEntity {
     // private Set<FamilyEntity> family;
 
     // private CommunityEntity community;
-    private boolean is_admin;
-    private boolean is_moderator;
-    private boolean isDeleted;
+    private boolean isadmin;
+    private boolean ismoderator;
+    private boolean isdeleted;
 
     public UserEntity(){}
     
-    public UserEntity(int user_id, String username, String firstname, String lastname, String email, String password,
-            String contactno, /*Set<FamilyEntity> family,*/ /*CommunityEntity community,*/ boolean is_admin, boolean is_moderator,
-            boolean isDeleted) {
-        this.user_id = user_id;
+    public UserEntity(int userid, String username, String firstname, String lastname, String email, String password,
+            String contactno, /*Set<FamilyEntity> family,*/ /*CommunityEntity community,*/ boolean isadmin, boolean ismoderator,
+            boolean isdeleted) {
+        this.userid = userid;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -47,13 +47,13 @@ public class UserEntity {
         this.contactno = contactno;
         // this.family = family;
         // this.community = community;
-        this.is_admin = is_admin;
-        this.is_moderator = is_moderator;
-        this.isDeleted = isDeleted;
+        this.isadmin = isadmin;
+        this.ismoderator = ismoderator;
+        this.isdeleted = isdeleted;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserid() {
+        return userid;
     }
 
 
@@ -92,28 +92,28 @@ public class UserEntity {
     }
 
 
-    public boolean isAdmin() {
-        return is_admin;
+    public boolean isadmin() {
+        return isadmin;
     }
 
-    public void setIsAdmin(boolean is_admin) {
-        this.is_admin = is_admin;
+    public void setIsadmin(boolean isadmin) {
+        this.isadmin = isadmin;
     }
 
-    public boolean isModerator() {
-        return is_moderator;
+    public boolean ismoderator() {
+        return ismoderator;
     }
 
-    public void setIsModerator(boolean is_moderator) {
-        this.is_moderator = is_moderator;
+    public void setIsmoderator(boolean ismoderator) {
+        this.ismoderator = ismoderator;
     }
 
-    public boolean isDeleted() {
-        return isDeleted;
+    public boolean isdeleted() {
+        return isdeleted;
     }
 
-    public void setIsDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setIsdeleted(boolean isdeleted) {
+        this.isdeleted = isdeleted;
     }
 
 
@@ -131,9 +131,5 @@ public class UserEntity {
     
     // public void setCommunity(CommunityEntity community) {
     //     this.community = community;
-    // }
-    
-
-
-    
+    // }    
 }

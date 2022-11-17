@@ -22,21 +22,25 @@ public class TipsController {
 	@Autowired
 	TipsService tserv;
 
+    //create tip feature (CREATE)
     @PostMapping("/postTip")
 	public TipsEntity postTip(@RequestBody TipsEntity tips) {
 		return tserv.insertTip(tips);
     }
     
+    //read all tips (READ)
     @GetMapping("/getAllTips")
     public List<TipsEntity> getAllTips(){
     	return tserv.getAllTips();
     }
-     
+    
+    //edit tip content (UPDATE)
     @PutMapping("/putTipContent")
     public TipsEntity putTipContent(@RequestParam int id, @RequestBody TipsEntity newTipDetails) throws Exception{
     	return tserv.putTipContent(id, newTipDetails);
     }
     
+    //delete tip feature (DELETE)
     @DeleteMapping("/deleteTip/{id}")
     public String deleteTip(@PathVariable int id) {
     	return tserv.deleteTip(id);
