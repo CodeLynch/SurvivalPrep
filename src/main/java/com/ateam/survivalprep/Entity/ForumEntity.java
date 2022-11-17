@@ -11,48 +11,48 @@ import javax.persistence.Id;
 public class ForumEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int forum_id;
-    private String forumTitle;
-    private String forumDesc;
-    private LocalDateTime dateTimeCreated = java.time.LocalDateTime.now();
+    private int forumid;
+    private String forumtitle;
+    private String forumdesc;
+    private LocalDateTime datetimecreated = java.time.LocalDateTime.now();
     // private Set<UserEntity> creator;
-    private boolean isDeleted;
+    private boolean isdeleted;
 
     public ForumEntity(){}
     
-    public ForumEntity(int forum_id, String forumTitle, String forumDesc, boolean isDeleted) {
-        this.forum_id = forum_id;
-        this.forumTitle = forumTitle;
-        this.forumDesc = forumDesc;
-        this.isDeleted = isDeleted;
+    public ForumEntity(int forumid, String forumtitle, String forumdesc, boolean isdeleted) {
+        this.forumid = forumid;
+        this.forumtitle = forumtitle;
+        this.forumdesc = forumdesc;
+        this.isdeleted = isdeleted;
     }
-    public int getForum_id() {
-        return forum_id;
-    }
-
-    public String getForumTitle() {
-        return forumTitle;
-    }
-    public void setForumTitle(String forumTitle) {
-        this.forumTitle = forumTitle;
+    public int getForumid() {
+        return forumid;
     }
 
-    public String getForumDesc() {
-        return forumDesc;
+    public String getForumtitle() {
+        return forumtitle;
     }
-    public void setForumDesc(String forumDesc) {
-        this.forumDesc = forumDesc;
+    public void setForumtitle(String forumtitle) {
+        this.forumtitle = forumtitle;
     }
 
-    public LocalDateTime getDateTimeCreated() {
-        return dateTimeCreated;
+    public String getForumdesc() {
+        return forumdesc;
+    }
+    public void setForumdesc(String forumdesc) {
+        this.forumdesc = forumdesc;
+    }
+
+    public LocalDateTime getDatetimecreated() {
+        return datetimecreated;
     }
     
-    public boolean isDeleted() {
-        return isDeleted;
+    public boolean isdeleted() {
+        return isdeleted;
     }
-    public void setDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setDeleted(boolean isdeleted) {
+        this.isdeleted = isdeleted;
     }
     
 }

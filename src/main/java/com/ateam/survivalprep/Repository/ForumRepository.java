@@ -7,5 +7,5 @@ import com.ateam.survivalprep.Entity.ForumEntity;
 
 @Repository
 public interface ForumRepository extends JpaRepository<ForumEntity, Integer> {
-    
+    public ForumEntity findByForumtitle (String forumtitle);
 }
