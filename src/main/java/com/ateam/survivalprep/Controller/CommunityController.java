@@ -32,9 +32,9 @@ public class CommunityController{
     	return cserv.getAllUCommunities();
     }
      
-    @PutMapping("/putCommunity")
-    public CommunityEntity putCommunity(@RequestParam int id, @RequestBody CommunityEntity newComDetails) throws Exception{
-    	return cserv.putCommunity(id, newComDetails);
+    @PutMapping("/putCommunityName")
+    public CommunityEntity putCommunityName(@RequestParam int id, @RequestBody CommunityEntity newComDetails) throws Exception{
+    	return cserv.putCommunityName(id, newComDetails);
     }
 
     @DeleteMapping("/deleteCommunity/{id}")

@@ -20,16 +20,15 @@ public class CommunityService {
 	}
 	
 	public List<CommunityEntity> getAllUCommunities(){
-	   return crepo.findAll();
+	   return crepo.findByIsdeleted(false);
 	}
 	
-	public CommunityEntity putCommunity(int id, CommunityEntity newComDetails) throws Exception{
+	public CommunityEntity putCommunityName(int id, CommunityEntity newComDetails) throws Exception{
 		CommunityEntity community = new CommunityEntity();
 		
 		try {
 			community = crepo.findById(id).get();
-			community.setCommunityName(newComDetails.getCommunityName());
-            community.setAddress(newComDetails.getAddress());
+			community.setCommunityname(newComDetails.getCommunityname());
 			return crepo.save(community);
 
 		}catch(NoSuchElementException e){
@@ -43,6 +42,7 @@ public class CommunityService {
 		if(crepo.findById(id) != null) {
             CommunityEntity community = crepo.findById(id).get();
             community.setDeleted(true);
+			crepo.save(community);
 			msg = "Community ID number " + id + " deleted successfully!";
 		}else {
 			msg = "Community ID number " + id + " is NOT found!";

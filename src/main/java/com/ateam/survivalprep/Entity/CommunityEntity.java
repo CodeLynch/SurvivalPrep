@@ -19,7 +19,7 @@ public class CommunityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int communityid;
-    private String communityName;
+    private String communityname;
     private String address;
 
     // @ManyToOne(targetEntity = UserEntity.class)
@@ -27,28 +27,28 @@ public class CommunityEntity {
     // private UserEntity creator;
 
 
-    private boolean isDeleted;
+    private boolean isdeleted;
 
     public CommunityEntity(){}
 
-    public CommunityEntity(int communityid, String communityName, String address, /*UserEntity creator,*/ boolean isDeleted) {
+    public CommunityEntity(int communityid, String communityname, String address, /*UserEntity creator,*/ boolean isdeleted) {
         this.communityid = communityid;
-        this.communityName = communityName;
+        this.communityname = communityname;
         this.address = address;
         // this.creator = creator;
-        this.isDeleted = isDeleted;
+        this.isdeleted = isdeleted;
     }
 
     public int getCommunityid() {
         return communityid;
     }
 
-    public String getCommunityName() {
-        return communityName;
+    public String getCommunityname() {
+        return communityname;
     }
 
-    public void setCommunityName(String communityName) {
-        this.communityName = communityName;
+    public void setCommunityname(String communityname) {
+        this.communityname = communityname;
     }
 
     public String getAddress() {
@@ -63,11 +63,11 @@ public class CommunityEntity {
     //     return creator;
     // }
 
-    public boolean isDeleted() {
-        return isDeleted;
+    public boolean isdeleted() {
+        return isdeleted;
     }
 
-    public void setDeleted(boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setDeleted(boolean isdeleted) {
+        this.isdeleted = isdeleted;
     }
 }
