@@ -36,8 +36,8 @@ public class TipsController {
     
     //edit tip content (UPDATE)
     @PutMapping("/putTipContent")
-    public TipsEntity putTipContent(@RequestParam int id, @RequestBody TipsEntity newTipDetails) throws Exception{
-    	return tserv.putTipContent(id, newTipDetails);
+    public TipsEntity putTipContent(@RequestParam int tipid, @RequestBody TipsEntity newTipDetails) throws Exception{
+    	return tserv.putTipContent(tipid, newTipDetails);
     }
     
     //delete tip feature (DELETE)
