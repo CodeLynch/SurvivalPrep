@@ -52,14 +52,14 @@ public class UserController {
 
     //for change Username (Update)
     @PutMapping("/putUsername")
-    public UserEntity putUsername(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
-    	return userv.putUsername(id, newUserDetails);
+    public UserEntity putUsername(@RequestParam int userid, @RequestBody UserEntity newUserDetails) throws Exception{
+    	return userv.putUsername(userid, newUserDetails);
     }
     
     //for change Password (Update)
     @PutMapping("/putPassword")
-    public UserEntity putUserPass(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
-    	return userv.putPassword(id, newUserDetails);
+    public UserEntity putUserPass(@RequestParam int userid, @RequestBody UserEntity newUserDetails) throws Exception{
+    	return userv.putPassword(userid, newUserDetails);
     }
     
     //for "Deleting" user (Delete)
