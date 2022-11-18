@@ -41,7 +41,7 @@ public class UserService {
 	   return urepo.findByIsdeleted(false);
 	}
 
-	//for add family member feature;
+	//for searching in add family member feature;
 	public UserEntity getUserByNum(String number){
 		if(urepo.findByContactno(number) != null && !urepo.findByContactno(number).isdeleted()){
 			return urepo.findByContactno(number);
@@ -50,6 +50,17 @@ public class UserService {
 			return null;
 		}
 	}
+	// for adding in add family member feature
+	// public UserEntity putFamily(int id, UserEntity newUserDetails) throws Exception{
+	// 	UserEntity user = new UserEntity();
+	// 	try {
+	// 		user = urepo.findById(id).get();
+	// 		user.setFamily(newUserDetails.getFamily());
+	// 		return urepo.save(user);
+	// 	}catch(NoSuchElementException e){
+	// 		throw new Exception("ID number " + id + " does not exist!");
+	// 	}
+	// }
 	
 	//for change Username feature (UPDATE)
 	public UserEntity putUsername(int id, UserEntity newUserDetails) throws Exception{

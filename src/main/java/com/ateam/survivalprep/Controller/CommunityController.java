@@ -22,7 +22,7 @@ public class CommunityController{
     @Autowired
 	CommunityService cserv;
 
-    @PostMapping("/postFamily")
+    @PostMapping("/postCommunity")
 	public CommunityEntity postCommunity(@RequestBody CommunityEntity community) {
 		return cserv.insertCommunity(community);
     }

@@ -43,7 +43,13 @@ public class UserController {
     public UserEntity getUserByNum(@RequestParam String contactNo){
         return userv.getUserByNum(contactNo);
     }
-     
+    
+    // //for add family member add feature
+    // @PutMapping("/putFamily")
+    // public UserEntity putFamily(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
+    // 	return userv.putFamily(id, newUserDetails);
+    // }
+
     //for change Username (Update)
     @PutMapping("/putUsername")
     public UserEntity putUsername(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
