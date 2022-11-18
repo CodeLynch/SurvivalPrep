@@ -2,10 +2,14 @@ package com.ateam.survivalprep.Entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -30,15 +34,19 @@ public class FamilyEntity {
     private String familyname;
     private String invitecode = inviteGenerator();
 
-    // private Set<UserEntity> creator;
+    @ManyToOne(targetEntity = UserEntity.class)
+    @JoinColumn(name = "userid")
+    private Set<UserEntity> creator;
+
+
     private boolean isdeleted;
 
     public FamilyEntity(){}
 
-    public FamilyEntity(int familyid, String familyname, /*Set<UserEntity> creator,*/ boolean isdeleted) {
+    public FamilyEntity(int familyid, String familyname, Set<UserEntity> creator, boolean isdeleted) {
         this.familyid = familyid;
         this.familyname = familyname;
-        // this.creator = creator;
+        this.creator = creator;
         this.isdeleted = isdeleted;
     }
 
@@ -58,9 +66,9 @@ public class FamilyEntity {
         return invitecode;
     }
 
-    // public Set<UserEntity> getCreator() {
-    //     return creator;
-    // }
+    public Set<UserEntity> getCreator() {
+        return creator;
+    }
 
     public boolean isdeleted() {
         return isdeleted;

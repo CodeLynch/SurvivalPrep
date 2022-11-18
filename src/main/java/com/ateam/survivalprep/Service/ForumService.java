@@ -20,7 +20,7 @@ public class ForumService {
 	}
 
 	public List<ForumEntity> getAllForums(){
-	   return frepo.findAll();
+	   return frepo.findByIsdeleted(false);
 	}
 	
 	//edit forum title (UPDATE)

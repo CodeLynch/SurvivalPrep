@@ -3,11 +3,11 @@ package com.ateam.survivalprep.Entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,19 +25,33 @@ public class UserEntity {
     private String password;
     private String contactno;
 
-    // @ManyToOne(cascade = CascadeType.MERGE)
-    // private Set<FamilyEntity> family;
+    @ManyToOne(targetEntity = FamilyEntity.class)
+    @JoinColumn(name = "familyid")
+    private Set<FamilyEntity> family;
 
-    // private CommunityEntity community;
+    // @OneToMany(cascade = CascadeType.MERGE)
+    // private Set<FamilyEntity> createdFamilies;
+
+    @ManyToOne(targetEntity = CommunityEntity.class)
+    @JoinColumn(name = "communityid")
+    private Set<CommunityEntity> community;
+
+    // @OneToMany(cascade = CascadeType.MERGE)
+    // private Set<CommunityEntity> createdCommunities;
+    
+    
     private boolean isadmin;
     private boolean ismoderator;
     private boolean isdeleted;
 
     public UserEntity(){}
     
+    
+
     public UserEntity(int userid, String username, String firstname, String lastname, String email, String password,
-            String contactno, /*Set<FamilyEntity> family,*/ /*CommunityEntity community,*/ boolean isadmin, boolean ismoderator,
-            boolean isdeleted) {
+            String contactno, Set<FamilyEntity> family, /*Set<FamilyEntity> createdFamilies,*/
+            Set<CommunityEntity> community, /*Set<CommunityEntity> createdCommunities,*/ boolean isadmin,
+            boolean ismoderator, boolean isdeleted) {
         this.userid = userid;
         this.username = username;
         this.firstname = firstname;
@@ -45,12 +59,39 @@ public class UserEntity {
         this.email = email;
         this.password = password;
         this.contactno = contactno;
-        // this.family = family;
-        // this.community = community;
+        this.family = family;
+        // this.createdFamilies = createdFamilies;
+        this.community = community;
+        // this.createdCommunities = createdCommunities;
         this.isadmin = isadmin;
         this.ismoderator = ismoderator;
         this.isdeleted = isdeleted;
     }
+
+    
+    // public Set<FamilyEntity> getCreatedFamilies() {
+    //     return createdFamilies;
+    // }
+
+    // public void setCreatedFamilies(Set<FamilyEntity> createdFamilies) {
+    //     this.createdFamilies = createdFamilies;
+    // }
+
+    public Set<CommunityEntity> getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Set<CommunityEntity> community) {
+        this.community = community;
+    }
+
+    // public Set<CommunityEntity> getCreatedCommunities() {
+    //     return createdCommunities;
+    // }
+
+    // public void setCreatedCommunities(Set<CommunityEntity> createdCommunities) {
+    //     this.createdCommunities = createdCommunities;
+    // }
 
     public int getUserid() {
         return userid;
@@ -117,13 +158,13 @@ public class UserEntity {
     }
 
 
-    // public Set<FamilyEntity> getFamily() {
-    //     return family;
-    // }
+    public Set<FamilyEntity> getFamily() {
+        return family;
+    }
     
-    // public void setFamily(Set<FamilyEntity> family) {
-    //     this.family = family;
-    // }
+    public void setFamily(Set<FamilyEntity> family) {
+        this.family = family;
+    }
     
     // public CommunityEntity getCommunity() {
     //     return community;
