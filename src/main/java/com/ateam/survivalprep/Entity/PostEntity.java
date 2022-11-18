@@ -1,5 +1,7 @@
 package com.ateam.survivalprep.Entity;
 
+import java.time.LocalDateTime;
+
 //import java.util.Set;
 
 import javax.persistence.Entity;
@@ -15,72 +17,67 @@ public class PostEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
-	private int postID;
-	private String postContent;
-	private String creator;
-	private String thread;
-	private int dateTimeCreated;
+	private int postid;
+	private String postcontent;
+	//private UserEntity creator;
+	//private ThreadEntity thread;
+	private LocalDateTime datetimecreated = java.time.LocalDateTime.now();
 	//private Set<UserEntity> creator;
-	private boolean isDeleted;
+	private boolean isdeleted;
 	
 	public PostEntity(){}
 	
-	public PostEntity(int postID, String postContent, String creator, String thread, int dateTimeCreated,
-			boolean isDeleted) {
+	public PostEntity(int postid, String postcontent, /*String creator, String thread,*/
+			boolean isdeleted) {
 		super();
-		this.postID = postID;
-		this.postContent = postContent;
-		this.creator = creator;
-		this.thread = thread;
-		this.dateTimeCreated = dateTimeCreated;
-		this.isDeleted = isDeleted;
+		this.postid = postid;
+		this.postcontent = postcontent;
+		// this.creator = creator;
+		// this.thread = thread;
+		this.isdeleted = isdeleted;
 	}
 
-	public int getPostID() {
-		return postID;
+	public int getPostid() {
+		return postid;
 	}
 
-	public void setPostID(int postID) {
-		this.postID = postID;
+	public void setPostid(int postid) {
+		this.postid = postid;
 	}
 
-	public String getPostContent() {
-		return postContent;
+	public String getPostcontent() {
+		return postcontent;
 	}
 
-	public void setPostContent(String postContent) {
-		this.postContent = postContent;
+	public void setPostcontent(String postcontent) {
+		this.postcontent = postcontent;
 	}
 
-	public String getCreator() {
-		return creator;
+	// public String getCreator() {
+	// 	return creator;
+	// }
+
+	// public void setCreator(String creator) {
+	// 	this.creator = creator;
+	// }
+
+	// public String getThread() {
+	// 	return thread;
+	// }
+
+	// public void setThread(String thread) {
+	// 	this.thread = thread;
+	// }
+
+	public LocalDateTime getDatetimecreated() {
+		return datetimecreated;
 	}
 
-	public void setCreator(String creator) {
-		this.creator = creator;
+	public boolean isdeleted() {
+		return isdeleted;
 	}
 
-	public String getThread() {
-		return thread;
-	}
-
-	public void setThread(String thread) {
-		this.thread = thread;
-	}
-
-	public int getDateTimeCreated() {
-		return dateTimeCreated;
-	}
-
-	public void setDateTimeCreated(int dateTimeCreated) {
-		this.dateTimeCreated = dateTimeCreated;
-	}
-
-	public boolean isDeleted() {
-		return isDeleted;
-	}
-
-	public void setDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setDeleted(boolean isdeleted) {
+		this.isdeleted = isdeleted;
 	}
 }

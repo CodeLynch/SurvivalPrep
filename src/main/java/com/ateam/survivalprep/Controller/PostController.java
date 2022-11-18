@@ -32,10 +32,10 @@ public class PostController{
 		return pserv.getAllPosts();
 	}
 	
-	// @PutMapping("/putPost")
-	// public PostEntity putPost(@RequestParam int id, @RequestParam PostEntity newPostDetails) throws Exception{
-	// 	return pserv.putPost(id, newPostDetails);
-	// }
+	@PutMapping("/putPostContent")
+	public PostEntity putPostContent(@RequestParam int id, @RequestBody PostEntity newPostDetails) throws Exception{
+		return pserv.putPostContent(id, newPostDetails);
+	}
 	
 	@DeleteMapping("/deletePost/{id}")
 	public String deletePost(@PathVariable int id) {

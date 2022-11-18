@@ -32,10 +32,10 @@ public class ThreadController{
 		return tserv.getAllThreads();
 	}
 	
-	// @PutMapping("/putThread")
-	// public ThreadEntity putThread(@RequestParam int id, @RequestBody ThreadEntity newThreadDetails) throws Exception{
-	// 	return tserv.putThread(id, newThreadDetails);
-	// }
+	@PutMapping("/putThreadTitle")
+	public ThreadEntity putThreadTitle(@RequestParam int id, @RequestBody ThreadEntity newThreadDetails) throws Exception{
+		return tserv.putThreadTitle(id, newThreadDetails);
+	}
 	
 	@DeleteMapping("/deleteThread/{id}")
 	public String deleteThread(@PathVariable int id) {

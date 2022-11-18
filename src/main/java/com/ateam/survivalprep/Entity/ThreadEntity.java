@@ -1,5 +1,7 @@
 package com.ateam.survivalprep.Entity;
 
+import java.time.LocalDateTime;
+
 //import java.util.Set;
 
 import javax.persistence.Entity;
@@ -15,72 +17,71 @@ public class ThreadEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int threadID;
-	private String threadTitle;
-	private String creator;
-	private String forum;
-	private int dateTimeCreated;
+	private int threadid;
+	private String threadtitle;
+	//private UserEntity creator;
+	//private ForumEntity forum;
+	private LocalDateTime datetimecreated = java.time.LocalDateTime.now();
 	//private Set<UserEntity>Creator;
-	private boolean isDeleted;
+	private boolean isdeleted;
 	
 	public ThreadEntity(){}
 	
-	public ThreadEntity(int threadID, String threadTitle, String creator, String forum, int dateTimeCreated,
-			boolean isDeleted) {
+	public ThreadEntity(int threadid, String threadtitle, /*String creator, String forum,*/
+			boolean isdeleted) {
 		super();
-		this.threadID = threadID;
-		this.threadTitle = threadTitle;
-		this.creator = creator;
-		this.forum = forum;
-		this.dateTimeCreated = dateTimeCreated;
-		this.isDeleted = isDeleted;
+		this.threadid = threadid;
+		this.threadtitle = threadtitle;
+		//this.creator = creator;
+		//this.forum = forum;
+		this.isdeleted = isdeleted;
 	}
 
-	public int getThreadID() {
-		return threadID;
+	public int getThreadid() {
+		return threadid;
 	}
 
-	public void setThreadID(int threadID) {
-		this.threadID = threadID;
+	public void setThreadid(int threadid) {
+		this.threadid = threadid;
 	}
 
-	public String getThreadTitle() {
-		return threadTitle;
+	public String getThreadtitle() {
+		return threadtitle;
 	}
 
-	public void setThreadTitle(String threadTitle) {
-		this.threadTitle = threadTitle;
+	public void setThreadtitle(String threadtitle) {
+		this.threadtitle = threadtitle;
 	}
 
-	public String getCreator() {
-		return creator;
+	// public String getCreator() {
+	// 	return creator;
+	// }
+
+	// public void setCreator(String creator) {
+	// 	this.creator = creator;
+	// }
+
+	// public String getForum() {
+	// 	return forum;
+	// }
+
+	// public void setForum(String forum) {
+	// 	this.forum = forum;
+	// }
+
+	public LocalDateTime getDatetimecreated() {
+		return datetimecreated;
 	}
 
-	public void setCreator(String creator) {
-		this.creator = creator;
+	public void setDatetimecreated(LocalDateTime datetimecreated) {
+		this.datetimecreated = datetimecreated;
 	}
 
-	public String getForum() {
-		return forum;
+	public boolean isdeleted() {
+		return isdeleted;
 	}
 
-	public void setForum(String forum) {
-		this.forum = forum;
-	}
-
-	public int getDateTimeCreated() {
-		return dateTimeCreated;
-	}
-
-	public void setDateTimeCreated(int dateTimeCreated) {
-		this.dateTimeCreated = dateTimeCreated;
-	}
-
-	public boolean isDeleted() {
-		return isDeleted;
-	}
-
-	public void setDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
+	public void setDeleted(boolean isdeleted) {
+		this.isdeleted = isdeleted;
 	}
 }
