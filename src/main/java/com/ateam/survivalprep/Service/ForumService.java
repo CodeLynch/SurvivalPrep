@@ -2,7 +2,6 @@ package com.ateam.survivalprep.Service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +10,7 @@ import com.ateam.survivalprep.Repository.ForumRepository;
 
 @Service
 public class ForumService {
+	
     @Autowired
 	ForumRepository frepo;
 	

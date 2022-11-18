@@ -18,37 +18,29 @@ import com.ateam.survivalprep.Service.ForumService;
 
 @RestController
 @RequestMapping("/forum")
-public class ForumController {
-	 @Autowired
+public class ForumController{
+	@Autowired
 	ForumService fserv;
-	 
-	    //for forum(Create)
-	    @PostMapping("/postForum")
-		public ForumEntity postUser(@RequestBody ForumEntity forum) {
-			return fserv.insertForum(forum);
-	    }
-		
-		//read all forums (READ)
-		@GetMapping("/getAllForums")
-		public List<ForumEntity> getAllForums(){
-			return fserv.getAllForums();
-		}
-		
-		//edit forum title (UPDATE)
-		@PutMapping("/putForumTitle")
-		public ForumEntity putForumTitle(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
-			return fserv.putForumTitle(id, newForumDetails);
-		}
-
-        //edit forum desc (UPDATE)
-		@PutMapping("/putForumDesc")
-		public ForumEntity putForumDesc(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
-			return fserv.putForumTitle(id, newForumDetails);
-		}
-		
-		//delete forum feature (DELETE)
-		@DeleteMapping("/deleteForum/{id}")
-		public String deleteForum(@PathVariable int id) {
-			return fserv.deleteForum(id);
-		}
+	
+	@PostMapping("/postForum")
+	public ForumEntity postForum(@RequestBody ForumEntity forum) {
+		return fserv.insertForum(forum);
+	}
+	
+	@GetMapping("/getAllForums")
+	public List<ForumEntity> getAllForums(){
+		return fserv.getAllForums();
+	}
+	
+	@PutMapping("/putForum")
+	public ForumEntity putForumTitle(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
+		return fserv.putForumTitle(id, newForumDetails);
+	}
+	
+	@DeleteMapping("/deleteForum/{id}")
+	public String deleteForum(@PathVariable int id) {
+		return fserv.deleteForum(id);
+	}
+	
 }
+

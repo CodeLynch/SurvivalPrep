@@ -1,7 +1,8 @@
 package com.ateam.survivalprep.Entity;
 
-import java.time.LocalDateTime;
+//import java.util.Set;
 
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -56,5 +57,4 @@ public class ForumEntity {
     public void setDeleted(boolean isdeleted) {
         this.isdeleted = isdeleted;
     }
-    
 }
