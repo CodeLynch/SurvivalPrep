@@ -32,9 +32,14 @@ public class ForumController{
 		return fserv.getAllForums();
 	}
 	
-	@PutMapping("/putForum")
+	@PutMapping("/putForumTitle")
 	public ForumEntity putForumTitle(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
 		return fserv.putForumTitle(id, newForumDetails);
+	}
+
+	@PutMapping("/putForumDesc")
+	public ForumEntity putForumDesc(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
+		return fserv.putForumDesc(id, newForumDetails);
 	}
 	
 	@DeleteMapping("/deleteForum/{id}")
