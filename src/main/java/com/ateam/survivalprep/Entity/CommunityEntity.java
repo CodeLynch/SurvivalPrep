@@ -1,13 +1,16 @@
 package com.ateam.survivalprep.Entity;
 
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 
@@ -22,20 +25,20 @@ public class CommunityEntity {
     private String communityname;
     private String address;
 
-    // @ManyToOne(targetEntity = UserEntity.class)
-    // @JoinColumn(name = "userid")
-    // private UserEntity creator;
+    @ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "userid")
+    private UserEntity creator;
 
 
     private boolean isdeleted;
 
     public CommunityEntity(){}
 
-    public CommunityEntity(int communityid, String communityname, String address, /*UserEntity creator,*/ boolean isdeleted) {
+    public CommunityEntity(int communityid, String communityname, String address, UserEntity creator, boolean isdeleted) {
         this.communityid = communityid;
         this.communityname = communityname;
         this.address = address;
-        // this.creator = creator;
+        this.creator = creator;
         this.isdeleted = isdeleted;
     }
 
@@ -59,9 +62,10 @@ public class CommunityEntity {
         this.address = address;
     }
 
-    // public UserEntity getCreator() {
-    //     return creator;
-    // }
+    @JsonBackReference
+    public UserEntity getCreator() {
+        return creator;
+    }
 
     public boolean isdeleted() {
         return isdeleted;

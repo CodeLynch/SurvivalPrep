@@ -11,10 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 
 
 @Entity
 @Table(name="tbl_user")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userid")
 public class UserEntity {
     
     @Id
@@ -35,7 +40,7 @@ public class UserEntity {
     @Column(unique=true)
     private String contactno;
 
-    @ManyToOne(targetEntity = FamilyEntity.class, cascade=CascadeType.MERGE)
+    @ManyToOne(targetEntity = FamilyEntity.class)
     @JoinColumn(name = "familyid")
     private FamilyEntity family;
 
@@ -135,6 +140,7 @@ public class UserEntity {
         this.isdeleted = isdeleted;
     }
 
+    @JsonManagedReference
     public FamilyEntity getFamily() {
         return family;
     }
@@ -146,7 +152,7 @@ public class UserEntity {
     }
 
 
-
+    @JsonManagedReference
     public CommunityEntity getCommunity() {
         return community;
     }

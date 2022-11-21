@@ -3,6 +3,7 @@ package com.ateam.survivalprep.Entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 
 
@@ -39,7 +43,7 @@ public class FamilyEntity {
     @Column(unique = true)
     private String invitecode = inviteGenerator();
 
-    @OneToOne(targetEntity = UserEntity.class)
+    @ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.MERGE)
     @JoinColumn(name = "userid")
     UserEntity creator;
 
@@ -71,6 +75,7 @@ public class FamilyEntity {
         return invitecode;
     }
 
+    @JsonBackReference
     public UserEntity getCreator() {
         return creator;
     }
