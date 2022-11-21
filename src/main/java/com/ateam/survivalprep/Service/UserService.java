@@ -51,16 +51,16 @@ public class UserService {
 		}
 	}
 	// for adding in add family member feature
-	// public UserEntity putFamily(int id, UserEntity newUserDetails) throws Exception{
-	// 	UserEntity user = new UserEntity();
-	// 	try {
-	// 		user = urepo.findById(id).get();
-	// 		user.setFamily(newUserDetails.getFamily());
-	// 		return urepo.save(user);
-	// 	}catch(NoSuchElementException e){
-	// 		throw new Exception("ID number " + id + " does not exist!");
-	// 	}
-	// }
+	public UserEntity putFamily(int id, UserEntity newUserDetails) throws Exception{
+		UserEntity user = new UserEntity();
+		try {
+			user = urepo.findById(id).get();
+			user.setFamily(newUserDetails.getFamily());
+			return urepo.save(user);
+		}catch(NoSuchElementException e){
+			throw new Exception("ID number " + id + " does not exist!");
+		}
+	}
 	
 	//for change Username feature (UPDATE)
 	public UserEntity putUsername(int id, UserEntity newUserDetails) throws Exception{

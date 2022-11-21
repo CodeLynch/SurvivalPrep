@@ -3,13 +3,14 @@ package com.ateam.survivalprep.Entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumn;
 
-//import javax.persistence.OneToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -34,21 +35,23 @@ public class FamilyEntity {
     private int familyid;
     
     private String familyname;
+
+    @Column(unique = true)
     private String invitecode = inviteGenerator();
 
-    // @OneToOne(targetEntity = UserEntity.class)
-    // @JoinColumn(name = "userid")
-    // UserEntity creator;
+    @OneToOne(targetEntity = UserEntity.class)
+    @JoinColumn(name = "userid")
+    UserEntity creator;
 
 
     private boolean isdeleted;
 
     public FamilyEntity(){}
 
-    public FamilyEntity(int familyid, String familyname, /*UserEntity creator,*/ boolean isdeleted) {
+    public FamilyEntity(int familyid, String familyname, UserEntity creator, boolean isdeleted) {
         this.familyid = familyid;
         this.familyname = familyname;
-        // this.creator = creator;
+        this.creator = creator;
         this.isdeleted = isdeleted;
     }
 
@@ -68,9 +71,9 @@ public class FamilyEntity {
         return invitecode;
     }
 
-    // public UserEntity getCreator() {
-    //     return creator;
-    // }
+    public UserEntity getCreator() {
+        return creator;
+    }
 
     public boolean isdeleted() {
         return isdeleted;

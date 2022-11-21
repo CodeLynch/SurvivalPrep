@@ -1,13 +1,14 @@
 package com.ateam.survivalprep.Entity;
 
 
-//import javax.persistence.CascadeType;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -19,20 +20,28 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userid;
+
+    @Column(unique=true)
     private String username;
     private String firstname;
+
     private String lastname;
+    
+    @Column(unique=true)
     private String email;
+    
     private String password;
+
+    @Column(unique=true)
     private String contactno;
 
-    // @ManyToOne(targetEntity = FamilyEntity.class, cascade=CascadeType.MERGE)
-    // @JoinColumn(name = "familyid")
-    // private FamilyEntity family;
+    @ManyToOne(targetEntity = FamilyEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "familyid")
+    private FamilyEntity family;
 
-    // @ManyToOne(targetEntity = CommunityEntity.class, cascade=CascadeType.MERGE)
-    // @JoinColumn(name = "communityid")
-    // private CommunityEntity community;
+    @ManyToOne(targetEntity = CommunityEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "communityid")
+    private CommunityEntity community;
     
     
     private boolean isadmin;
@@ -44,7 +53,7 @@ public class UserEntity {
     
 
     public UserEntity(int userid, String username, String firstname, String lastname, String email, String password,
-            String contactno, /*FamilyEntity family, CommunityEntity community,*/ boolean isadmin, boolean ismoderator,
+            String contactno, FamilyEntity family, CommunityEntity community, boolean isadmin, boolean ismoderator,
             boolean isdeleted) {
         this.userid = userid;
         this.username = username;
@@ -53,8 +62,8 @@ public class UserEntity {
         this.email = email;
         this.password = password;
         this.contactno = contactno;
-        // this.family = family;
-        // this.community = community;
+        this.family = family;
+        this.community = community;
         this.isadmin = isadmin;
         this.ismoderator = ismoderator;
         this.isdeleted = isdeleted;
@@ -126,27 +135,27 @@ public class UserEntity {
         this.isdeleted = isdeleted;
     }
 
-    // public FamilyEntity getFamily() {
-    //     return family;
-    // }
+    public FamilyEntity getFamily() {
+        return family;
+    }
 
 
 
-    // public void setFamily(FamilyEntity family) {
-    //     this.family = family;
-    // }
+    public void setFamily(FamilyEntity family) {
+        this.family = family;
+    }
 
 
 
-    // public CommunityEntity getCommunity() {
-    //     return community;
-    // }
+    public CommunityEntity getCommunity() {
+        return community;
+    }
 
 
 
-    // public void setCommunity(CommunityEntity community) {
-    //     this.community = community;
-    // }
+    public void setCommunity(CommunityEntity community) {
+        this.community = community;
+    }
 
     
 
