@@ -24,6 +24,16 @@ public class PostService {
 	public List<PostEntity> getAllPosts(){
 		return prepo.findByIsdeleted(false);
 	}
+
+	//view all posts by a specific user that are not deleted (READ)
+	public List<PostEntity> getAllPostsOfUser(int id){
+		return prepo.findAllByIsdeletedAndCreatorUserid(false, id);
+	}
+
+	//view all posts by a specific user that are not deleted (READ)
+	public List<PostEntity> getAllPostsOfThread(int id){
+		return prepo.findAllByIsdeletedAndThreadThreadid(false, id);
+	}
 	
 	//edit post (UPDATE)
 	public PostEntity putPostContent(int id, PostEntity newPostDetails) throws Exception{

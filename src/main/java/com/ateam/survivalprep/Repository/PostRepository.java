@@ -7,11 +7,11 @@ import org.springframework.stereotype.Repository;
 
 import com.ateam.survivalprep.Entity.PostEntity;
 import com.ateam.survivalprep.Entity.ThreadEntity;
-import com.ateam.survivalprep.Entity.UserEntity;
 
 @Repository
 public interface PostRepository extends JpaRepository<PostEntity,Integer>{
     public List<PostEntity> findByIsdeleted (boolean isdeleted);
-    // public List<PostEntity> findbyUserid (UserEntity user);
+    public List<PostEntity> findAllByIsdeletedAndCreatorUserid (boolean isdeleted, int userid);
+    public List<PostEntity> findAllByIsdeletedAndThreadThreadid(boolean isdeleted, int threadid);
     public List<PostEntity> findByThread (ThreadEntity thread);
 }

@@ -33,6 +33,16 @@ public class PostController{
 	public List<PostEntity> getAllPosts(){
 		return pserv.getAllPosts();
 	}
+
+	@GetMapping("/getAllPostsByUser")
+	public List<PostEntity> getAllPostsByUser(@RequestParam int id){
+		return pserv.getAllPostsOfUser(id);
+	}
+
+	@GetMapping("/getAllPostsByThread")
+	public List<PostEntity> getAllPostsByThread(@RequestParam int id){
+		return pserv.getAllPostsOfThread(id);
+	}
 	
 	@PutMapping("/putPostContent")
 	public PostEntity putPostContent(@RequestParam int id, @RequestBody PostEntity newPostDetails) throws Exception{
