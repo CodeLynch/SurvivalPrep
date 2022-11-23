@@ -1,7 +1,6 @@
 package com.ateam.survivalprep.Entity;
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,15 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 
 @Entity
 @Table(name="tbl_user")
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "userid")
 public class UserEntity {
     
     @Id
@@ -44,7 +40,7 @@ public class UserEntity {
     @JoinColumn(name = "familyid")
     private FamilyEntity family;
 
-    @ManyToOne(targetEntity = CommunityEntity.class, cascade=CascadeType.MERGE)
+    @ManyToOne(targetEntity = CommunityEntity.class)
     @JoinColumn(name = "communityid")
     private CommunityEntity community;
     

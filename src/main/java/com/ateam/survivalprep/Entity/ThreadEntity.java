@@ -2,13 +2,15 @@ package com.ateam.survivalprep.Entity;
 
 import java.time.LocalDateTime;
 
-//import java.util.Set;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 
 @Entity
@@ -19,21 +21,28 @@ public class ThreadEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int threadid;
 	private String threadtitle;
-	//private UserEntity creator;
-	//private ForumEntity forum;
+
+	@ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "userid")
+	private UserEntity creator;
+
+	@ManyToOne(targetEntity = ForumEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "forumid")
+	private ForumEntity forum;
+
 	private LocalDateTime datetimecreated = java.time.LocalDateTime.now();
-	//private Set<UserEntity>Creator;
+	
 	private boolean isdeleted;
 	
 	public ThreadEntity(){}
 	
-	public ThreadEntity(int threadid, String threadtitle, /*String creator, String forum,*/
+	public ThreadEntity(int threadid, String threadtitle, UserEntity creator, ForumEntity forum,
 			boolean isdeleted) {
 		super();
 		this.threadid = threadid;
 		this.threadtitle = threadtitle;
-		//this.creator = creator;
-		//this.forum = forum;
+		this.creator = creator;
+		this.forum = forum;
 		this.isdeleted = isdeleted;
 	}
 
@@ -53,21 +62,17 @@ public class ThreadEntity {
 		this.threadtitle = threadtitle;
 	}
 
-	// public String getCreator() {
-	// 	return creator;
-	// }
+	public UserEntity getCreator() {
+		return creator;
+	}
 
-	// public void setCreator(String creator) {
-	// 	this.creator = creator;
-	// }
+	public void setCreator(UserEntity creator) {
+		this.creator = creator;
+	}
 
-	// public String getForum() {
-	// 	return forum;
-	// }
-
-	// public void setForum(String forum) {
-	// 	this.forum = forum;
-	// }
+	public ForumEntity getForum() {
+		return forum;
+	}
 
 	public LocalDateTime getDatetimecreated() {
 		return datetimecreated;

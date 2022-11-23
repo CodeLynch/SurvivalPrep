@@ -2,6 +2,7 @@ package com.ateam.survivalprep.Controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ateam.survivalprep.Entity.UserEntity;
 import com.ateam.survivalprep.Service.UserService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -50,18 +52,36 @@ public class UserController {
     	return userv.putFamily(id, newUserDetails);
     }
 
+    //for change community feature
+    @PutMapping("/putCommunity")
+    public UserEntity putCommunity(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
+        return userv.putCommunity(id, newUserDetails);
+    }
+
     //for change Username (Update)
     @PutMapping("/putUsername")
-    public UserEntity putUsername(@RequestParam int userid, @RequestBody UserEntity newUserDetails) throws Exception{
-    	return userv.putUsername(userid, newUserDetails);
+    public UserEntity putUsername(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
+    	return userv.putUsername(id, newUserDetails);
     }
     
     //for change Password (Update)
     @PutMapping("/putPassword")
-    public UserEntity putUserPass(@RequestParam int userid, @RequestBody UserEntity newUserDetails) throws Exception{
-    	return userv.putPassword(userid, newUserDetails);
+    public UserEntity putUserPass(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
+    	return userv.putPassword(id, newUserDetails);
     }
-    
+
+    //for make Admin (Update)
+    @PutMapping("/putAdmin")
+    public UserEntity putAdmin(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
+    	return userv.putAdmin(id, newUserDetails);
+    }    
+
+    //for make Mod (Update)
+    @PutMapping("/putMod")
+    public UserEntity putMod(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
+    	return userv.putMod(id, newUserDetails);
+    }
+
     //for "Deleting" user (Delete)
     @DeleteMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable int id) {

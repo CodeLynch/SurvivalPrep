@@ -61,6 +61,18 @@ public class UserService {
 			throw new Exception("ID number " + id + " does not exist!");
 		}
 	}
+
+	// for change communithy feature
+	public UserEntity putCommunity(int id, UserEntity newUserDetails) throws Exception{
+		UserEntity user = new UserEntity();
+		try {
+			user = urepo.findById(id).get();
+			user.setCommunity(newUserDetails.getCommunity());
+			return urepo.save(user);
+		}catch(NoSuchElementException e){
+			throw new Exception("ID number " + id + " does not exist!");
+		}
+	}
 	
 	//for change Username feature (UPDATE)
 	public UserEntity putUsername(int id, UserEntity newUserDetails) throws Exception{
@@ -84,6 +96,30 @@ public class UserService {
 		try {
 			user = urepo.findById(id).get();
 			user.setPassword(newUserDetails.getPassword());
+			return urepo.save(user);
+		}catch(NoSuchElementException e){
+			throw new Exception("ID number " + id + " does not exist!");
+		}
+	}
+
+	//for giving user admin privileges (UPDATE)
+	public UserEntity putAdmin(int id, UserEntity newUserDetails) throws Exception{
+		UserEntity user = new UserEntity();
+		try {
+			user = urepo.findById(id).get();
+			user.setIsadmin(newUserDetails.isadmin());
+			return urepo.save(user);
+		}catch(NoSuchElementException e){
+			throw new Exception("ID number " + id + " does not exist!");
+		}
+	}
+
+	//for giving user moderator privileges (UPDATE)
+	public UserEntity putMod(int id, UserEntity newUserDetails) throws Exception{
+		UserEntity user = new UserEntity();
+		try {
+			user = urepo.findById(id).get();
+			user.setIsmoderator(newUserDetails.ismoderator());
 			return urepo.save(user);
 		}catch(NoSuchElementException e){
 			throw new Exception("ID number " + id + " does not exist!");

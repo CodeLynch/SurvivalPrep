@@ -2,12 +2,14 @@ package com.ateam.survivalprep.Entity;
 
 import java.time.LocalDateTime;
 
-//import java.util.Set;
+import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,21 +21,26 @@ public class PostEntity {
 	
 	private int postid;
 	private String postcontent;
-	//private UserEntity creator;
-	//private ThreadEntity thread;
+	
+	@ManyToOne(targetEntity = UserEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "userid")
+	private UserEntity creator;
+	
+	@ManyToOne(targetEntity = ThreadEntity.class, cascade=CascadeType.MERGE)
+    @JoinColumn(name = "forumid")
+	private ThreadEntity thread;
 	private LocalDateTime datetimecreated = java.time.LocalDateTime.now();
-	//private Set<UserEntity> creator;
 	private boolean isdeleted;
 	
 	public PostEntity(){}
 	
-	public PostEntity(int postid, String postcontent, /*String creator, String thread,*/
+	public PostEntity(int postid, String postcontent, UserEntity creator, ThreadEntity thread,
 			boolean isdeleted) {
 		super();
 		this.postid = postid;
 		this.postcontent = postcontent;
-		// this.creator = creator;
-		// this.thread = thread;
+		this.creator = creator;
+		this.thread = thread;
 		this.isdeleted = isdeleted;
 	}
 
@@ -53,21 +60,17 @@ public class PostEntity {
 		this.postcontent = postcontent;
 	}
 
-	// public String getCreator() {
-	// 	return creator;
-	// }
+	public UserEntity getCreator() {
+		return creator;
+	}
 
-	// public void setCreator(String creator) {
-	// 	this.creator = creator;
-	// }
+	public void setCreator( UserEntity creator) {
+		this.creator = creator;
+	}
 
-	// public String getThread() {
-	// 	return thread;
-	// }
-
-	// public void setThread(String thread) {
-	// 	this.thread = thread;
-	// }
+	public ThreadEntity getThread() {
+		return thread;
+	}
 
 	public LocalDateTime getDatetimecreated() {
 		return datetimecreated;
