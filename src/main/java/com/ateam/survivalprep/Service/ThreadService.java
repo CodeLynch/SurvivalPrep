@@ -48,7 +48,7 @@ public class ThreadService {
 			trepo.save(thread);
 			msg = " Thread ID number " + id + " deleted succesfully! ";
 		}else {
-			msg = " Community ID number " + id + " is NOT found! ";
+			msg = " Thread ID number " + id + " is NOT found! ";
 		}
 		return msg;
 		}

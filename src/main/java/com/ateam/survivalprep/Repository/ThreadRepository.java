@@ -11,8 +11,7 @@ import com.ateam.survivalprep.Entity.ThreadEntity;
 public interface ThreadRepository extends JpaRepository<ThreadEntity, Integer>{
 	public ThreadEntity findByThreadtitle (String threadtitle);
 
-    // @Query("SELECT * FROM tbl_post WHERE forum = (:forum) AND deleted = false")
-    // public List<ThreadEntity> findByForum (ForumEntity forum);
+    //public List<ThreadEntity> findByForum (ForumEntity forum);
 
     public List<ThreadEntity> findByIsdeleted (boolean isdeleted);
 

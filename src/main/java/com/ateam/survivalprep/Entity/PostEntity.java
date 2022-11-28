@@ -27,8 +27,10 @@ public class PostEntity {
 	private UserEntity creator;
 	
 	@ManyToOne(targetEntity = ThreadEntity.class, cascade=CascadeType.MERGE)
-    @JoinColumn(name = "forumid")
+    @JoinColumn(name = "threadid")
 	private ThreadEntity thread;
+
+
 	private LocalDateTime datetimecreated = java.time.LocalDateTime.now();
 	private boolean isdeleted;
 	
