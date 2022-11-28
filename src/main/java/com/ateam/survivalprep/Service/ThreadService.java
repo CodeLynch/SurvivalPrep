@@ -20,9 +20,14 @@ public class ThreadService {
 		return trepo.save(thread);
 	}
 	
-	//view all threads that are not deleted(DELETE)
+	//view all threads that are not deleted (READ)
 	public List<ThreadEntity> getAllThreads(){
 		return trepo.findByIsdeleted(false);	
+		}
+	
+	//view all threads that belong to a certain forum (READ)
+	public List<ThreadEntity> getAllThreadsByForum(int id){
+		return trepo.findAllByForum(id);	
 		}
 	
 	//change Thread Title (UPDATE)
