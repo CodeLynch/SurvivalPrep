@@ -27,13 +27,18 @@ public class UserService {
 			if(urepo.findByEmail(email) != null && !urepo.findByEmail(email).isdeleted()){
 				UserEntity userAccount = urepo.findByEmail(email);
 				if(userAccount.getPassword().equals(pass)){
-					return "Login Successful!";
+					return userAccount.getUserid()+"";
 				}else{
 					return "Incorrect Password!";
 				}
 			}else{
 				return "No User Found!";
 			}
+	}
+
+	//for profile feature (READ)
+	public UserEntity getUserById(int id) {
+		return urepo.findByUserid(id);
 	}
 
 	//check if users are getting deleted

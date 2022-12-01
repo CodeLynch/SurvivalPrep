@@ -34,6 +34,12 @@ public class UserController {
 		return userv.LoginUser(user);
     }
     
+    //for getting account details (Read)
+    @GetMapping("/getUserById")
+    public UserEntity getUserById(@RequestParam int id){
+    	return userv.getUserById(id);
+    }
+
     //for checking deletion
     @GetMapping("/getAllUsers")
     public List<UserEntity> getAllUsers(){
