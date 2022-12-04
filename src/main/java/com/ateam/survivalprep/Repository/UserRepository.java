@@ -12,6 +12,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Integer>{
     UserEntity findByUserid(int id);
     UserEntity findByEmail(String email);
     List<UserEntity> findByIsdeleted(boolean is_deleted);
+    List<UserEntity> findAllByIsdeletedAndFamilyFamilyid (boolean is_deleted, int familyid);
     UserEntity findByContactno(String contact_no);
     
 }

@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 
@@ -71,7 +70,6 @@ public class FamilyEntity {
         return invitecode;
     }
 
-    @JsonBackReference
     public UserEntity getCreator() {
         return creator;
     }

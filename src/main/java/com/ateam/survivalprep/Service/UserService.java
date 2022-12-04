@@ -55,6 +55,11 @@ public class UserService {
 			return null;
 		}
 	}
+
+	public List<UserEntity> getUsersByFamily(int familyid){
+		return urepo.findAllByIsdeletedAndFamilyFamilyid(false, familyid);
+	}
+	
 	// for adding in add family member feature
 	public UserEntity putFamily(int id, UserEntity newUserDetails) throws Exception{
 		UserEntity user = new UserEntity();
@@ -66,6 +71,8 @@ public class UserService {
 			throw new Exception("ID number " + id + " does not exist!");
 		}
 	}
+
+
 
 	// for change communithy feature
 	public UserEntity putCommunity(int id, UserEntity newUserDetails) throws Exception{

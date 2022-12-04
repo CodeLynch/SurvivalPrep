@@ -52,6 +52,12 @@ public class UserController {
         return userv.getUserByNum(contactNo);
     }
     
+    //for getting family members
+    @GetMapping("/getFamilyMembers")
+    public List<UserEntity> getUsersByFamily(@RequestParam int familyid){
+        return userv.getUsersByFamily(familyid);
+    }
+
     //for add family member add feature
     @PutMapping("/putFamily")
     public UserEntity putFamily(@RequestParam int id, @RequestBody UserEntity newUserDetails) throws Exception{
