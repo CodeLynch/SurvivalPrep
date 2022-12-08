@@ -54,9 +54,9 @@ public class FamilyInviteService {
             FamilyInviteEntity invite = frepo.findById(id).get();
             invite.setIsdeleted(true);
 			frepo.save(invite);
-			msg = "Family ID number " + id + " deleted successfully!";
+			msg = "Invite ID number " + id + " deleted successfully!";
 		}else {
-			msg = "Family ID number " + id + " is NOT found!";
+			msg = "Invite ID number " + id + " is NOT found!";
 		}
 		return msg;
 	}    
