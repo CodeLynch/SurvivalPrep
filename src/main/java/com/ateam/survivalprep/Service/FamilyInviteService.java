@@ -24,7 +24,7 @@ public class FamilyInviteService {
 	}
 
     public List<FamilyInviteEntity> getAllInvitesByInvitee(int id){
-        return frepo.findAllByInviteeUserid(id);
+        return frepo.findAllByInviteeUseridAndIsdeleted(id, false);
      }
     
     public List<FamilyInviteEntity> getAllInvitesByInviter(int id){
