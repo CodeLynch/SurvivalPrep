@@ -22,6 +22,11 @@ public class ForumService {
 	public List<ForumEntity> getAllForums(){
 	   return frepo.findByIsdeleted(false);
 	}
+
+	//get Forum based on community (READ)
+	public List<ForumEntity> getAllForumsByCommunity(int communityid){
+		return frepo.findAllByCommunityCommunityidAndIsdeleted(communityid, false);
+	}
 	
 	//edit forum title (UPDATE)
 	public ForumEntity putForumTitle(int id, ForumEntity newForumDetails) throws Exception{

@@ -27,7 +27,7 @@ public class ThreadService {
 	
 	//view all threads that belong to a certain forum (READ)
 	public List<ThreadEntity> getAllThreadsByForum(int id){
-		return trepo.findAllByForum(id);	
+		return trepo.findAllByForumForumidAndIsdeleted(id, false);	
 		}
 	
 	//change Thread Title (UPDATE)
