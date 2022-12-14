@@ -23,18 +23,23 @@ public class ForumService {
 	   return frepo.findByIsdeleted(false);
 	}
 
+	public ForumEntity getForumById(int forumid){
+		return frepo.findByForumid(forumid);
+	}
+
 	//get Forum based on community (READ)
 	public List<ForumEntity> getAllForumsByCommunity(int communityid){
 		return frepo.findAllByCommunityCommunityidAndIsdeleted(communityid, false);
 	}
 	
-	//edit forum title (UPDATE)
-	public ForumEntity putForumTitle(int id, ForumEntity newForumDetails) throws Exception{
+	//edit forum (UPDATE)
+	public ForumEntity putForum(int id, ForumEntity newForumDetails) throws Exception{
 		ForumEntity forum = new ForumEntity();
 		
 		try {
 			forum = frepo.findById(id).get();
 			forum.setForumtitle(newForumDetails.getForumtitle());
+			forum.setForumdesc(newForumDetails.getForumdesc());
 			return frepo.save(forum);
 			
 		}catch(NoSuchElementException e){
