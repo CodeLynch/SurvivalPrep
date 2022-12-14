@@ -24,6 +24,10 @@ public class ThreadService {
 	public List<ThreadEntity> getAllThreads(){
 		return trepo.findByIsdeleted(false);	
 		}
+
+	public ThreadEntity getThreadById(int id){
+		return trepo.findByThreadid(id);	
+		}
 	
 	//view all threads that belong to a certain forum (READ)
 	public List<ThreadEntity> getAllThreadsByForum(int id){

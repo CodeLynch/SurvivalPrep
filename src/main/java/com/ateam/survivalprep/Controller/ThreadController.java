@@ -34,6 +34,11 @@ public class ThreadController{
 		return tserv.getAllThreads();
 	}
 
+	@GetMapping("/getThreadById")
+	public ThreadEntity getThread(@RequestParam int id){
+		return tserv.getThreadById(id);
+	}
+
 	@GetMapping("/getAllThreadsByForum")
 	public List<ThreadEntity> getAllThreadsByForum(@RequestParam int id){
 		return tserv.getAllThreadsByForum(id);

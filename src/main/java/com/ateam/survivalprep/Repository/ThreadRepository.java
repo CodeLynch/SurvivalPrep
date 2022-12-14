@@ -8,6 +8,8 @@ import com.ateam.survivalprep.Entity.ThreadEntity;
 
 @Repository
 public interface ThreadRepository extends JpaRepository<ThreadEntity, Integer>{
+
+    public ThreadEntity findByThreadid (int threadid);
 	public ThreadEntity findByThreadtitle (String threadtitle);
     public List<ThreadEntity> findAllByForumForumidAndIsdeleted (int forumid, boolean isdeleted);
     public List<ThreadEntity> findByIsdeleted (boolean isdeleted);
