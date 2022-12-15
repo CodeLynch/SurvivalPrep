@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.ateam.survivalprep.Entity.TipsEntity;
 import com.ateam.survivalprep.Repository.TipsRepository;
-import com.mpssuarez.sims.Entity.StudentEntity;
 
 @Service
 public class TipsService {
