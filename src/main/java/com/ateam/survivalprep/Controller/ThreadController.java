@@ -33,6 +33,16 @@ public class ThreadController{
 	public List<ThreadEntity> getAllThreads(){
 		return tserv.getAllThreads();
 	}
+
+	@GetMapping("/getThreadById")
+	public ThreadEntity getThread(@RequestParam int id){
+		return tserv.getThreadById(id);
+	}
+
+	@GetMapping("/getAllThreadsByForum")
+	public List<ThreadEntity> getAllThreadsByForum(@RequestParam int id){
+		return tserv.getAllThreadsByForum(id);
+	}
 	
 	@PutMapping("/putThreadTitle")
 	public ThreadEntity putThreadTitle(@RequestParam int id, @RequestBody ThreadEntity newThreadDetails) throws Exception{

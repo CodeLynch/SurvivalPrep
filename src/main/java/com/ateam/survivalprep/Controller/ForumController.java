@@ -33,10 +33,20 @@ public class ForumController{
 	public List<ForumEntity> getAllForums(){
 		return fserv.getAllForums();
 	}
+
+	@GetMapping("/getForumById")
+	public ForumEntity getForumById(@RequestParam int id){
+		return fserv.getForumById(id);
+	}
+
+	@GetMapping("/getAllForumsByCommunity")
+	public List<ForumEntity> getAllForumsByCommunity(@RequestParam int communityid){
+		return fserv.getAllForumsByCommunity(communityid);
+	}
 	
-	@PutMapping("/putForumTitle")
-	public ForumEntity putForumTitle(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
-		return fserv.putForumTitle(id, newForumDetails);
+	@PutMapping("/putForum")
+	public ForumEntity putForum(@RequestParam int id, @RequestBody ForumEntity newForumDetails) throws Exception{
+		return fserv.putForum(id, newForumDetails);
 	}
 
 	@PutMapping("/putForumDesc")

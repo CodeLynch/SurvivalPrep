@@ -34,6 +34,11 @@ public class PostController{
 		return pserv.getAllPosts();
 	}
 
+	@GetMapping("/getPostById")
+	public PostEntity getPost(int id){
+		return pserv.getPostById(id);
+	}
+
 	@GetMapping("/getAllPostsByUser")
 	public List<PostEntity> getAllPostsByUser(@RequestParam int id){
 		return pserv.getAllPostsOfUser(id);
