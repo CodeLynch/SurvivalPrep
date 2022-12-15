@@ -10,4 +10,5 @@ import com.ateam.survivalprep.Entity.TipsEntity;
 @Repository
 public interface TipsRepository extends JpaRepository<TipsEntity, Integer>{
         public List<TipsEntity> findByIsdeleted(boolean isdeleted);
+        public TipsEntity findByTipid(int tipid);
 }

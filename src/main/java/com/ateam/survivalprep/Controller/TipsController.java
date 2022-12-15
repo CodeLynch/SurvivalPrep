@@ -36,6 +36,12 @@ public class TipsController {
     	return tserv.getAllTips();
     }
     
+    //read by tipid
+    @GetMapping("/getByTipid")
+    public TipsEntity findByTipid(@RequestParam int tipid) {
+        return tserv.findByTipid(tipid);
+    }
+    
     //edit tip content (UPDATE)
     @PutMapping("/putTipContent")
     public TipsEntity putTipContent(@RequestParam int tipid, @RequestBody TipsEntity newTipDetails) throws Exception{

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ateam.survivalprep.Entity.TipsEntity;
 import com.ateam.survivalprep.Repository.TipsRepository;
+import com.mpssuarez.sims.Entity.StudentEntity;
 
 @Service
 public class TipsService {
@@ -22,6 +23,13 @@ public class TipsService {
 	public List<TipsEntity> getAllTips(){
 		return trepo.findByIsdeleted(false);
 	}
+	
+	public TipsEntity findByTipid(int tipid) {
+        if (trepo.findByTipid(tipid) != null)
+            return trepo.findByTipid(tipid);
+        else
+            return null;
+    }
 		
 	public TipsEntity putTipContent(int id, TipsEntity newTipDetails) throws Exception{
 		TipsEntity tips = new TipsEntity();
