@@ -25,6 +25,10 @@ public class PostService {
 		return prepo.findByIsdeleted(false);
 	}
 
+	public PostEntity getPostById(int id){
+		return prepo.findByPostid(id);
+	}
+
 	//view all posts by a specific user that are not deleted (READ)
 	public List<PostEntity> getAllPostsOfUser(int id){
 		return prepo.findAllByIsdeletedAndCreatorUserid(false, id);
